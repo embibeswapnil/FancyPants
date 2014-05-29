@@ -2,7 +2,7 @@ var looking = null;
 var cloud = Snap.select('.cloud');
 var fancypants = Snap.select('.fp');
 var hair = Snap.select('#Hair');
-var head = Snap.select('#Face_2_');
+var head = Snap.select('#Face');
 var eyes = Snap.selectAll('#Right_eye,#Left_eye');
 var smile = Snap.select('#Smile');
 var mouth = Snap.select('#Open_mouth_1_');
@@ -14,7 +14,7 @@ var pant1 = Snap.select('#Left_leg');
 var pant2 = Snap.select('#Right_leg');
 var pant2 = Snap.select('#Right_leg');
 var pants = Snap.selectAll('#Right_leg,#Left_leg');
-var wheels = Snap.selectAll('#wheel');
+var wheels = Snap.selectAll('#wheel,#wheel_1_');
 var eatables = Snap.selectAll('.eatable');
 var i = 0;
 
