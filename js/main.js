@@ -80,9 +80,9 @@ document.addEventListener('scroll',function(){
     eat();
   }, 50);
 
-  /*danceTimer = setTimeout(function(){
+  danceTimer = setTimeout(function(){
     dancing = setInterval(dance,500);
-  },6000);*/
+  },3000);
 
 });
 
