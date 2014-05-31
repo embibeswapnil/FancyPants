@@ -115,7 +115,8 @@ body {
     bottom: 3px;
     left: 7%;
     width: 140px;
-    height: 260px;
+    height: 230px;
+    z-index: 2;
     -webkit-transition: left 2.5s ease-out;
     -moz-transition: left 2.5s ease-out;
     -ms-transition: left 2.5s ease-out;
@@ -134,9 +135,20 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 5px;
+    height: 8px;
     width: 10000px;
+    z-index: 1;
     background-image: url("../img/road.svg");
+}
+
+.skyline {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    height: 46px;
+    width: 10000px;
+    z-index: 1;
+    background-image: url("../img/skyline.svg");
 }
 
 .before-load {
