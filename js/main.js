@@ -75,6 +75,7 @@ document.addEventListener('scroll',function(e){
   }
 
   if (danceTimer)  {
+    resetFancyPants();
     clearTimeout(danceTimer);
   }
 
@@ -202,4 +203,16 @@ function dance(){
     hand2.animate({transform:"r"+[7,pivots.spine]},200);
     belt.animate({transform:"t"+[7,0]},200);
   }, 250);
+}
+
+function resetFancyPants(){
+  pant1.animate({transform:"t"+[0,0]},200);
+  pant2.animate({transform:"t"+[0,0]},200);
+  spine.animate({transform:"r"+[0,pivots.spine]},200);
+  legCrack.animate({transform:"t"+[0,0]+"r"+[0,pivots.folds]},200);
+  leftFolds.animate({transform:"t"+[0,0]+"r"+[0,pivots.folds]},200);
+  rightFolds.animate({transform:"t"+[0,0]+"r"+[0,pivots.folds]},200);
+  hand1.animate({transform:"r"+[0,pivots.spine]},200);
+  hand2.animate({transform:"r"+[0,pivots.spine]},200);
+  belt.animate({transform:"t"+[0,0]},200);
 }
