@@ -12,7 +12,10 @@ var hand2 = Snap.select('#Right_hand');
 var belt = Snap.select('#Belt_1_');
 var pant1 = Snap.select('#Left_leg');
 var pant2 = Snap.select('#Right_leg');
-var pant2 = Snap.select('#Right_leg');
+var wheels = Snap.selectAll('#wheel,#wheel_1_');
+var legCrack = Snap.select('#Leg_crack');
+var leftFolds = Snap.select('#Left_pant_folds');
+var rightFolds = Snap.select('#Right_pant_folds');
 var pants = Snap.selectAll('#Right_leg,#Left_leg');
 var wheels = Snap.selectAll('#wheel,#wheel_1_');
 var eatables = Snap.selectAll('.eatable');
@@ -22,7 +25,8 @@ var pivots = {
   'spine':[spine.attr('x1'),spine.attr('y1')],
   'hand1':[hand1.attr('x1'),hand1.attr('y1')],
   'hand2':[hand2.attr('x1'),hand2.attr('y1')],
-  'hair':[head.attr('cx'),head.attr('cy')]
+  'hair':[head.attr('cx'),head.attr('cy')],
+  'folds': [legCrack.attr('x2'), legCrack.attr('y2')]
 };
 
 var foodPoints = [];
@@ -70,8 +74,9 @@ document.addEventListener('scroll',function(e){
     lookTimer = setTimeout(lookStraight,100);
   }
 
-  if (danceTimer) 
+  if (danceTimer)  {
     clearTimeout(danceTimer);
+  }
 
   scrollTimer = setTimeout(function(){
     prevScrollX = window.scrollX;
@@ -177,18 +182,24 @@ function moveClouds() {
 }
 
 function dance(){
-  pant1.animate({transform:"t"+[-10,0]},200);
-  pant2.animate({transform:"t"+[-10,0]},200);
+  pant1.animate({transform:"t"+[-7,0]},200);
+  pant2.animate({transform:"t"+[-7,0]},200);
   spine.animate({transform:"r"+[5,pivots.spine]},200);
-  hand1.animate({transform:"r"+[-15,pivots.spine]},200);
-  hand2.animate({transform:"r"+[-15,pivots.spine]},200);
-  belt.animate({transform:"t"+[-10,0]},200);
+  legCrack.animate({transform:"t"+[-7,0]+"r"+[-10,pivots.folds]},200);
+  leftFolds.animate({transform:"t"+[-7,0]+"r"+[-10,pivots.folds]},200);
+  rightFolds.animate({transform:"t"+[-7,0]+"r"+[-10,pivots.folds]},200);
+  hand1.animate({transform:"r"+[-7,pivots.spine]},200);
+  hand2.animate({transform:"r"+[-7,pivots.spine]},200);
+  belt.animate({transform:"t"+[-7,0]},200);
   setTimeout(function(){
-    pant1.animate({transform:"t"+[10,0]},200);
-    pant2.animate({transform:"t"+[10,0]},200);
+    pant1.animate({transform:"t"+[7,0]},200);
+    pant2.animate({transform:"t"+[7,0]},200);
     spine.animate({transform:"r"+[-5,pivots.spine]},200);
-    hand1.animate({transform:"r"+[15,pivots.spine]},200);
-    hand2.animate({transform:"r"+[15,pivots.spine]},200);
-    belt.animate({transform:"t"+[10,0]},200);
+    legCrack.animate({transform:"t"+[7,0]+"r"+[15,pivots.folds]},200);
+    leftFolds.animate({transform:"t"+[7,0]+"r"+[15,pivots.folds]},200);
+    rightFolds.animate({transform:"t"+[7,0]+"r"+[15,pivots.folds]},200);
+    hand1.animate({transform:"r"+[7,pivots.spine]},200);
+    hand2.animate({transform:"r"+[7,pivots.spine]},200);
+    belt.animate({transform:"t"+[7,0]},200);
   }, 250);
 }

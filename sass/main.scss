@@ -289,15 +289,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-@font-face {
-    font-family: 'Amatic';
-    src: url('../fonts/AmaticSC-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
-    font-family: 'Amatic', Helvetica, arial, sans serif;
+    font-family: 'Amatic SC', Helvetica, arial, sans serif;
     width: 10000px;
 }
 
