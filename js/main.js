@@ -41,7 +41,7 @@ setTimeout(function(){
     clearTimeout(initSKate);
     lookStraight();
     setTimeout(blinkEyes,1000);
-  },2500);
+  },1500);
 },1000);
 
 k = false;
@@ -52,7 +52,8 @@ lookTimer = null;
 dancing = null;
 prevScrollX = 0;
 
-document.addEventListener('scroll',function(){
+document.addEventListener('scroll',function(e){
+  e.preventDefault();
   clearInterval(dancing);
   hairback();
   if (scrollTimer) {
@@ -60,11 +61,9 @@ document.addEventListener('scroll',function(){
     if(lookTimer)
       clearTimeout(lookTimer);
     if(window.scrollX - prevScrollX > 0){
-      fancypants.attr('class','fp slide-right');
       skate('front');
       lookLeft();
     } else {
-      fancypants.attr('class','fp slide-left');
       skate('back');
       lookRight();
     }
@@ -78,7 +77,7 @@ document.addEventListener('scroll',function(){
     prevScrollX = window.scrollX;
     hairfront();
     eat();
-  }, 50);
+  }, 1);
 
   danceTimer = setTimeout(function(){
     dancing = setInterval(dance,500);
@@ -157,12 +156,12 @@ function lookRight(){
 
 function openMouth(){
   smile.attr('display','none');
-  mouth.animate({transform:"t"+[-33,0]},200);//.attr({mask: head})
+  mouth.attr('display','inline').animate({transform:"t"+[-26,0]},80);//.attr({mask: head})
 }
 
 function closeMouth(){
   smile.attr('display','inline');
-  mouth.animate({transform:"t"+[0,0]},50);
+  mouth.attr('display','none').animate({transform:"t"+[0,0]},80);
 }
 
 function lookStraight(){

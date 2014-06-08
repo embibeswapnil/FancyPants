@@ -94,78 +94,6 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-body {
-    font-family: 'robotothin', Helvetica, arial, sans serif;
-    width: 10000px;
-}
-
-/* ==========================================================================
-   Cloud styles
-   ========================================================================== */
-
-.cloud-container {
-   height: 20px; 
-}
-
-.fp {
-    position: fixed;
-    bottom: 3px;
-    left: 7%;
-    width: 140px;
-    height: 230px;
-    z-index: 2;
-    -webkit-transition: left 2.5s ease-out;
-    -moz-transition: left 2.5s ease-out;
-    -ms-transition: left 2.5s ease-out;
-    -o-transition: left 2.5s ease-out;
-    transition: left 2.5s ease-out;
-}
-
-.eatable {
-    position: absolute;
-    left: 1500px;
-    bottom: 150px;
-    height: 50px;
-}
-
-.road {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 8px;
-    width: 10000px;
-    z-index: 1;
-    background-image: url("../img/road.svg");
-}
-
-.skyline {
-    position: absolute;
-    bottom: 7px;
-    left: 0;
-    height: 46px;
-    width: 10000px;
-    z-index: 1;
-    background-image: url("../img/skyline.svg");
-}
-
-.before-load {
-    left: -150px;
-}
-
-.slide-right {
-    left: 5%;
-}
-
-.slide-left {
-    left: 9%;
-}
-
-
-
-/* ==========================================================================
    Helper classes
    ========================================================================== */
 
@@ -353,4 +281,83 @@ body {
     h3 {
         page-break-after: avoid;
     }
+}
+
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Amatic';
+    src: url('../fonts/AmaticSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Amatic', Helvetica, arial, sans serif;
+    width: 10000px;
+}
+
+/* ==========================================================================
+   Cloud styles
+   ========================================================================== */
+
+.cloud-container {
+   height: 20px; 
+}
+
+.fp {
+    position: fixed;
+    bottom: 3px;
+    left: 7%;
+    width: 140px;
+    height: 230px;
+    z-index: 2;
+    -webkit-transition: left 1.5s ease-out;
+    -moz-transition: left 1.5s ease-out;
+    -ms-transition: left 1.5s ease-out;
+    -o-transition: left 1.5s ease-out;
+    transition: left 1.5s ease-out;
+}
+
+.eatable {
+    position: absolute;
+    left: 1500px;
+    bottom: 139px;
+    height: 36px;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 8px;
+    width: 10000px;
+    z-index: 1;
+    background-image: url("../img/road.svg");
+}
+
+.skyline {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    height: 46px;
+    width: 10000px;
+    z-index: 1;
+    background-image: url("../img/skyline.svg");
+}
+
+.before-load {
+    left: -100px;
+}
+
+.slide-right {
+    left: 5%;
+}
+
+.slide-left {
+    left: 9%;
 }
