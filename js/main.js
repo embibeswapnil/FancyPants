@@ -161,12 +161,12 @@ function lookRight(){
 
 function openMouth(){
   smile.attr('display','none');
-  mouth.attr('display','inline').animate({transform:"t"+[-26,0]},80);//.attr({mask: head})
+  mouth.attr('display','inline').animate({transform:"t"+[-26,0]},20);//.attr({mask: head})
 }
 
 function closeMouth(){
   smile.attr('display','inline');
-  mouth.attr('display','none').animate({transform:"t"+[0,0]},80);
+  mouth.attr('display','none').animate({transform:"t"+[0,0]},20);
 }
 
 function lookStraight(){
