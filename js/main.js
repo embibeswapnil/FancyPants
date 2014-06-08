@@ -117,7 +117,7 @@ function eat(){
     if(window.scrollX > food.el.node.offsetLeft - 150 && !food.isEaten){
       food.el.node.style.display = 'none';
       closeMouth();
-      changePants('#1572b6');
+      changePants(food.el.node.getAttribute('color'));
       lookStraight();
       food.isEaten = true;
     }
@@ -137,7 +137,7 @@ function blinkEyes(){
 
 function changePants(color){
   pants.forEach(function(el){
-    el.animate({'fill': color},300);
+    el.animate({'fill': color},200);
   });
 }
 
