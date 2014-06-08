@@ -1,25 +1,36 @@
-var looking = null;
-var cloud = Snap.select('.cloud');
-var fancypants = Snap.select('.fp');
-var hair = Snap.select('#Hair');
-var head = Snap.select('#Face');
-var eyes = Snap.selectAll('#Right_eye,#Left_eye');
-var smile = Snap.select('#Smile');
-var mouth = Snap.select('#Open_mouth_1_');
-var spine = Snap.select('#Spine');
-var hand1 = Snap.select('#Left_hand');
-var hand2 = Snap.select('#Right_hand');
-var belt = Snap.select('#Belt_1_');
-var pant1 = Snap.select('#Left_leg');
-var pant2 = Snap.select('#Right_leg');
-var wheels = Snap.selectAll('#wheel,#wheel_1_');
-var legCrack = Snap.select('#Leg_crack');
-var leftFolds = Snap.select('#Left_pant_folds');
-var rightFolds = Snap.select('#Right_pant_folds');
-var pants = Snap.selectAll('#Right_leg,#Left_leg');
-var wheels = Snap.selectAll('#wheel,#wheel_1_');
-var eatables = Snap.selectAll('.eatable');
-var i = 0;
+var k           = false;
+var j           = false;
+var i           = 0;
+var ang         = 0;
+var looking     = null;
+var scrollTimer = null;
+var danceTimer  = null;
+var lookTimer   = null;
+var dancing     = null;
+var danceDelay  = 5000;
+var prevScrollX = 0;
+var foodPoints  = [];
+
+var cloud       = Snap.select('.cloud');
+var fancypants  = Snap.select('.fp');
+var hair        = Snap.select('#Hair');
+var head        = Snap.select('#Face');
+var eyes        = Snap.selectAll('#Right_eye,#Left_eye');
+var smile       = Snap.select('#Smile');
+var mouth       = Snap.select('#Open_mouth_1_');
+var spine       = Snap.select('#Spine');
+var hand1       = Snap.select('#Left_hand');
+var hand2       = Snap.select('#Right_hand');
+var belt        = Snap.select('#Belt_1_');
+var pant1       = Snap.select('#Left_leg');
+var pant2       = Snap.select('#Right_leg');
+var wheels      = Snap.selectAll('#wheel,#wheel_1_');
+var legCrack    = Snap.select('#Leg_crack');
+var leftFolds   = Snap.select('#Left_pant_folds');
+var rightFolds  = Snap.select('#Right_pant_folds');
+var pants       = Snap.selectAll('#Right_leg,#Left_leg');
+var wheels      = Snap.selectAll('#wheel,#wheel_1_');
+var eatables    = Snap.selectAll('.eatable');
 
 var pivots = {
   'spine':[spine.attr('x1'),spine.attr('y1')],
@@ -29,70 +40,83 @@ var pivots = {
   'folds': [legCrack.attr('x2'), legCrack.attr('y2')]
 };
 
-var foodPoints = [];
 
 //moveClouds();
-eatables.forEach(function(el){
-  var point = {'el':el,'isEaten': false};
-  foodPoints.push(point);
-});
+var init = function(){
+  eatables.forEach(function(el){
+    var point = {'el':el,'isEaten': false};
+    foodPoints.push(point);
+  });
 
-setTimeout(function(){
-  lookLeft();
-  initSKate = setInterval(function(){skate('front');},20);
-  fancypants.attr('class','fp');
   setTimeout(function(){
-    clearTimeout(initSKate);
-    lookStraight();
-    setTimeout(blinkEyes,1000);
-  },1500);
-},1000);
+    lookLeft();
+    initSKate = setInterval(function(){skate('front');},20);
+    fancypants.attr('class','fp');
+    setTimeout(function(){
+      clearTimeout(initSKate);
+      lookStraight();
+      setTimeout(blinkEyes,1000);
+    },1500);
+  },1000);
 
-k = false;
-j = false;
-scrollTimer = null;
-danceTimer = null;
-lookTimer = null;
-dancing = null;
-prevScrollX = 0;
+  document.addEventListener('scroll',function(e){
+    e.preventDefault();
+    onScroll();
+  });
 
-document.addEventListener('scroll',function(e){
-  e.preventDefault();
+  danceTimer = setTimeout(function(){
+    dancing = setInterval(dance,500);
+  }, danceDelay);
+
+};
+
+window.addEventListener('load', init, false);
+
+function onScroll(){
+  
   clearInterval(dancing);
-  hairback();
-  if (scrollTimer) {
-    clearTimeout(scrollTimer);
-    if(lookTimer)
-      clearTimeout(lookTimer);
-    if(window.scrollX - prevScrollX > 0){
-      skate('front');
-      lookLeft();
-    } else {
-      skate('back');
-      lookRight();
-    }
-    lookTimer = setTimeout(lookStraight,100);
-  }
-
+  
   if (danceTimer)  {
     resetFancyPants();
     clearTimeout(danceTimer);
   }
+  
+  danceTimer = setTimeout(function(){
+    dancing = setInterval(dance,500);
+  },danceDelay);
+
+  var isScrollingForward = window.scrollX - prevScrollX > 0;
+
+  if(isScrollingForward) {
+    skate('front');
+    hairback();
+  } else {
+    skate('back');
+    hairfront();
+  }
+
+  if (scrollTimer) {
+    clearTimeout(scrollTimer);
+    
+    if(lookTimer)
+      clearTimeout(lookTimer);
+    
+    if(isScrollingForward) {
+      lookLeft();
+    } else {
+      lookRight();
+    }
+
+    lookTimer = setTimeout(lookStraight,100);
+  }
 
   scrollTimer = setTimeout(function(){
     prevScrollX = window.scrollX;
-    hairfront();
+    hairReset();
     eat();
   }, 1);
+}
 
-  danceTimer = setTimeout(function(){
-    dancing = setInterval(dance,500);
-  },3000);
-
-});
-
-
-ang = 0;
 function skate(dir){
   wheels.forEach(function(el){
     ang = (dir == 'front' ? ang+1 : ang-1);
@@ -104,8 +128,12 @@ function hairback(){
   hair.animate({transform: "r"+[-10,pivots.hair]},10);
 }
 
-function hairfront(){
+function hairReset(){
   hair.animate({transform: "r"+[0,pivots.hair]},0);
+}
+
+function hairfront(){
+  hair.animate({transform: "r"+[10,pivots.hair]},0);
 }
 
 function eat(){
