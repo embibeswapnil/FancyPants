@@ -291,7 +291,7 @@ textarea {
 
 body {
     font-family: 'Amatic SC', Helvetica, arial, sans serif;
-    width: 10000px;
+    width: 1000%;
 }
 
 /* ==========================================================================
@@ -339,7 +339,7 @@ body {
     bottom: 0;
     left: 0;
     height: 8px;
-    width: 10000px;
+    width: 1000%;
     z-index: 1;
     background-image: url("../img/road.svg");
 }
@@ -364,4 +364,37 @@ body {
 
 .slide-left {
     left: 9%;
+}
+
+.story {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 300px;
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  list-style: none;
+
+  li {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    opacity: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    -webkit-transition: .6s all ease;
+    -moz-transition: .6s all ease;
+    -ms-transition: .6s all ease;
+    -o-transition: .6s all ease;
+    transition: .6s all ease;
+
+    &.active {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
 }

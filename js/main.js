@@ -10,6 +10,7 @@ var dancing     = null;
 var danceDelay  = 5000;
 var prevScrollX = 0;
 var foodPoints  = [];
+var windowWidth = window.outerWidth;
 
 var cloud       = Snap.select('.cloud');
 var fancypants  = Snap.select('.fp');
@@ -86,35 +87,42 @@ function onScroll(){
   },danceDelay);
 
   var isScrollingForward = window.scrollX - prevScrollX > 0;
+  prevScrollX = window.scrollX;
 
   if(isScrollingForward) {
     skate('front');
-    hairback();
+    moveHair(-10);
+    lookLeft();
   } else {
     skate('back');
-    hairfront();
+    moveHair(10);
+    lookRight();
   }
 
   if (scrollTimer) {
     clearTimeout(scrollTimer);
-    
-    if(lookTimer)
-      clearTimeout(lookTimer);
-    
-    if(isScrollingForward) {
-      lookLeft();
-    } else {
-      lookRight();
-    }
-
-    lookTimer = setTimeout(lookStraight,100);
   }
 
   scrollTimer = setTimeout(function(){
-    prevScrollX = window.scrollX;
-    hairReset();
+    moveHair(0);
     eat();
+    scrollContent(window.pageXOffset);
   }, 1);
+
+  if(lookTimer)
+    clearTimeout(lookTimer);
+
+  lookTimer = setTimeout(lookStraight,100);
+};
+
+var listItems = document.querySelectorAll('.story li');
+
+function scrollContent(pos){
+  var activeIndex = Math.floor(pos/windowWidth)+1;
+  for ( i in listItems) {
+    listItems[i].className = '';
+  }
+  document.querySelector('.story li:nth-child('+activeIndex+')').className = 'active';
 }
 
 function skate(dir){
@@ -124,30 +132,22 @@ function skate(dir){
   });
 }
 
-function hairback(){
-  hair.animate({transform: "r"+[-10,pivots.hair]},10);
-}
-
-function hairReset(){
-  hair.animate({transform: "r"+[0,pivots.hair]},0);
-}
-
-function hairfront(){
-  hair.animate({transform: "r"+[10,pivots.hair]},0);
+function moveHair(angle){
+  hair.animate({transform: "r"+[angle,pivots.hair]},10);
 }
 
 function eat(){
   for (var i = foodPoints.length - 1; i >= 0; i--) {
     var food = foodPoints[i];
     if(window.scrollX > food.el.node.offsetLeft - 330 && !food.isEaten){
-      lookLeft();
+      //lookLeft();
       openMouth();
     }
     if(window.scrollX > food.el.node.offsetLeft - 150 && !food.isEaten){
       food.el.node.style.display = 'none';
       closeMouth();
       changePants(food.el.node.getAttribute('color'));
-      lookStraight();
+      //lookStraight();
       food.isEaten = true;
     }
   }
@@ -171,21 +171,15 @@ function changePants(color){
 }
 
 function lookLeft(){
-  if(looking == 'left')
-    return;
   eyes.forEach(function(el){
     el.animate({transform:"t"+[10,0]},50);
   });
-  looking = 'left';
 }
 
 function lookRight(){
-  if(looking == 'right')
-    return;
   eyes.forEach(function(el){
     el.animate({transform:"t"+[-10,0]},50);
   });
-  looking = 'right';
 }
 
 function openMouth(){
