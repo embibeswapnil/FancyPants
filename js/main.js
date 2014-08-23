@@ -1,39 +1,42 @@
 'use strict';
 
-var $           = Snap.select;
-var $$          = Snap.selectAll;
-var i           = 0;
-var ang         = 0;
-var scrollTimer = null;
-var danceTimer  = null;
-var lookTimer   = null;
-var initSkate   = null;
-var dancing     = null;
-var danceDelay  = 5000;
-var prevScrollX = 0;
-var foodPoints  = [];
-var windowWidth = window.outerWidth;
+var $           = Snap.select,
+    $$          = Snap.selectAll,
+    i           = 0,
+    ang         = 0,
+    scrollTimer = null,
+    danceTimer  = null,
+    lookTimer   = null,
+    initSkate   = null,
+    dancing     = null,
+    danceDelay  = 5000,
+    prevScrollX = 0,
+    foodPoints  = [],
+    windowWidth = window.outerWidth;
 
-var cloud       = $('.cloud');
-var fancypants  = $('.fp');
-var hair        = $('#Hair');
-var head        = $('#Face');
-var eyes        = $$('#Right_eye,#Left_eye');
-var smile       = $('#Smile');
-var mouth       = $('#Open_mouth_1_');
-var spine       = $('#Spine');
-var hand1       = $('#Left_hand');
-var hand2       = $('#Right_hand');
-var belt        = $('#Belt_1_');
-var pant1       = $('#Left_leg');
-var pant2       = $('#Right_leg');
-var wheels      = $$('#wheel,#wheel_1_');
-var legCrack    = $('#Leg_crack');
-var leftFolds   = $('#Left_pant_folds');
-var rightFolds  = $('#Right_pant_folds');
-var pants       = $$('#Right_leg,#Left_leg');
-var wheels      = $$('#wheel,#wheel_1_');
-var eatables    = $$('.eatable');
+var cloud       = $('.cloud'),
+    fancypants  = $('.fp'),
+    hair        = $('#Hair'),
+    head        = $('#Face'),
+    eyes        = $$('#Right_eye,#Left_eye'),
+    smile       = $('#Smile'),
+    mouth       = $('#Open_mouth_1_'),
+    spine       = $('#Spine'),
+    hand1       = $('#Left_hand'),
+    hand2       = $('#Right_hand'),
+    belt        = $('#Belt_1_'),
+    pant1       = $('#Left_leg'),
+    pant2       = $('#Right_leg'),
+    wheels      = $$('#wheel,#wheel_1_'),
+    legCrack    = $('#Leg_crack'),
+    leftFolds   = $('#Left_pant_folds'),
+    rightFolds  = $('#Right_pant_folds'),
+    pants       = $$('#Right_leg,#Left_leg'),
+    wheels      = $$('#wheel,#wheel_1_'),
+    eatables    = $$('.eatable');
+
+var story = "Hey there! I'm Swapnil Singh. I build web stuff. After i finished my college i always wanted to build awesome web experiences. I started building webapps as a backend developer and very soon I realised that i prefer talking to my users than servers. I've switched to frontend development and loved it :) I love getting my hands dirty at design and i feel 9 out 10 websites i visit everyday have serious tone to them and i wish to make lot of happy websites in contrast. Besides working as a frontend developer I also am a professional KFC eater :d RocknRoll fan and a budding guitarist. So far I've worked on . If you want to build awesome stuff together or just have a chat feel free to reach me on github or twitter."
+var words = story.split(" ");
 
 var pivots = {
   'spine':[spine.attr('x1'),spine.attr('y1')],
@@ -118,14 +121,16 @@ function onScroll(){
   lookTimer = setTimeout(lookStraight,100);
 }
 
-var listItems = document.querySelectorAll('.story li');
+// var listItems = document.querySelectorAll('.story li');
+var para = document.querySelector('.storyline');
+var lastIndex = 0;
 
 function scrollContent(pos){
-  var activeIndex = Math.floor(pos/windowWidth)+1;
-  for(var i in listItems) {
-    listItems[i].className = '';
-  }
-  document.querySelector('.story li:nth-child('+activeIndex+')').className = 'active';
+  var activeIndex = Math.floor(pos/100);
+  if(activeIndex > lastIndex)
+  para.innerHTML += " " + words[activeIndex];
+  lastIndex = activeIndex;
+  //document.querySelector('.story li:nth-child('+activeIndex+')').className = 'active';
 }
 
 function skate(dir){

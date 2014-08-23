@@ -281,7 +281,7 @@ textarea {
    ========================================================================== */
 
 body {
-  width: 1000%;
+  width: 5000%;
   font-family: 'Amatic SC', Helvetica, arial, sans serif;
 }
 
@@ -394,4 +394,10 @@ body {
       transition-delay: 1s;
     }
   }
+}
+
+.storyline {
+  text-align: justify;
+  word-spacing: 40px;
+  font-sizing: 40px;
 }
