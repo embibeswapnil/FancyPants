@@ -35,9 +35,6 @@ var cloud       = $('.cloud'),
     wheels      = $$('#wheel,#wheel_1_'),
     eatables    = $$('.eatable');
 
-var story = "Hey there! I'm Swapnil Singh. I build web stuff. After i finished my college i always wanted to build awesome web experiences. I started building webapps as a backend developer and very soon I realised that i prefer talking to my users than servers. I've switched to frontend development and loved it :) I love getting my hands dirty at design and i feel 9 out 10 websites i visit everyday have serious tone to them and i wish to make lot of happy websites in contrast. Besides working as a frontend developer I also am a professional KFC eater :d RocknRoll fan and a budding guitarist. So far I've worked on . If you want to build awesome stuff together or just have a chat feel free to reach me on github or twitter."
-var words = story.split(" ");
-
 var pivots = {
   'spine':[spine.attr('x1'),spine.attr('y1')],
   'hand1':[hand1.attr('x1'),hand1.attr('y1')],
@@ -77,16 +74,18 @@ var init = function(){
 };
 
 window.addEventListener('load', init, false);
+var scrollHelper = document.querySelector('.scroll-helper');
 
 function onScroll(){
-  
+
+	scrollHelper.style.display = 'none';
   clearInterval(dancing);
-  
+
   if (danceTimer)  {
     resetFancyPants();
     clearTimeout(danceTimer);
   }
-  
+
   danceTimer = setTimeout(function(){
     dancing = setInterval(dance,500);
   },danceDelay);
@@ -111,7 +110,6 @@ function onScroll(){
   scrollTimer = setTimeout(function(){
     moveHair(0);
     eat();
-    scrollContent(window.pageXOffset);
   }, 1);
 
   if(lookTimer) {
@@ -119,18 +117,6 @@ function onScroll(){
   }
 
   lookTimer = setTimeout(lookStraight,100);
-}
-
-// var listItems = document.querySelectorAll('.story li');
-var para = document.querySelector('.storyline');
-var lastIndex = 0;
-
-function scrollContent(pos){
-  var activeIndex = Math.floor(pos/100);
-  if(activeIndex > lastIndex)
-  para.innerHTML += " " + words[activeIndex];
-  lastIndex = activeIndex;
-  //document.querySelector('.story li:nth-child('+activeIndex+')').className = 'active';
 }
 
 function skate(dir){
