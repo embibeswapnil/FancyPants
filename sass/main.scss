@@ -292,7 +292,7 @@ textarea {
 }
 
 body {
-  width: 18000px;
+  wi6th: 17500px;
   font-family: 'kg_primary_penmanship_2Rg', Helvetica, arial, sans serif;
 }
 
@@ -301,8 +301,12 @@ body {
    ========================================================================== */
 
 .cloud-container {
- height: 98px;
- background: url("../img/clouds.svg");
+  position: absolute;
+  left: 0;
+  bottom: 450px;
+  width: 17600px;
+  height: 98px;
+  background: url("../img/clouds.svg");
 }
 
 .fp {
@@ -312,11 +316,11 @@ body {
   z-index: 2;
   width: 140px;
   height: 230px;
-  -webkit-transition: left 1.5s ease-out;
-  -moz-transition: left 1.5s ease-out;
-  -ms-transition: left 1.5s ease-out;
-  -o-transition: left 1.5s ease-out;
-  transition: left 1.5s ease-out;
+  -webkit-transition: left 1s ease-out;
+  -moz-transition: left 1s ease-out;
+  -ms-transition: left 1s ease-out;
+  -o-transition: left 1s ease-out;
+  transition: left 1s ease-out;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -335,7 +339,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 1;
-  width: 18000px;
+  width: 17600px;
   height: 8px;
   background-image: url("../img/road.svg");
 }
@@ -345,7 +349,7 @@ body {
   bottom: 7px;
   left: 0;
   z-index: 1;
-  width: 18000px;
+  width: 17600px;
   height: 46px;
   background-image: url("../img/skyline.svg");
 }
@@ -362,15 +366,10 @@ body {
   left: 9%;
 }
 
-.story {
-  position: absolute;
-  top: 300px;
-}
-
 .left-gradient,
 .right-gradient {
   position: fixed;
-  top:  300px;
+  bottom:  300px;
   z-index: 1;
   width: 300px;
   height: 56px;
@@ -403,6 +402,8 @@ body {
 }
 
 .storyline {
+  position: absolute;
+  bottom: 300px;
   margin: 0;
   padding: 0 250px;
   word-spacing: 25px;
@@ -443,7 +444,15 @@ body {
 .serious { left: 8000px; }
 .happy { left: 8970px; }
 .chicken { left: 10500px; }
-
-/*.css3 { left: 22000px; }
-.html5 { left: 22500px; }
-.nodejs { left: 22500px; }*/
+.beer { left: 10947px; }
+.guitar { left: 11533px; }
+.html5 { left: 12369px; }
+.css3 { left: 12498px; }
+.js { left: 12652px; }
+.ng { left: 12848px; }
+.d3 { left: 12986px; }
+.sass { left: 13095px; }
+.illustrator { left: 13331px; }
+.github { left: 13790px; }
+.mail { left: 16186px; }
+.twitter { left: 16384px; }

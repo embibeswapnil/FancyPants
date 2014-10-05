@@ -12,7 +12,7 @@
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 				<link rel="icon" href="/favicon.ico" type="image/x-icon">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -22,28 +22,11 @@
 
         <!-- Add your site or application content here -->
         <div class="cloud-container"></div>
-        <section class="story">
-        	<div class="left-gradient"></div>
-	        <p class="storyline">
-	        	Hey there! I'm Swapnil Singh. I build web stuff. After i finished my college i always wanted to build awesome web experiences. I started building webapps as a backend developer and very soon I realised that i prefer talking to my users than servers. I've switched to frontend development and loved it :) I love getting my hands dirty at design and i feel 9 out 10 websites i visit everyday have serious feel in them and i wish to make lot of happy websites. Besides working as a frontend developer I also am a professional KFC eater :d I love beer, beach, RocknRoll, Indian food and my guitar. As of frontend i usually work with HTML, CSS, Javascript, AngularJS, SASS, Slim, Git, Sublime and Illustrator. Check out my <a href="http://github.com/embibeswapnil" target="_blank">Github</a> for personal stuff I've worked on so far. If you want to build awesome stuff together or just have a chat feel free to reach me by <a href="mailto:thisisnotaid@gmail.com">mail</a> or <a href="http://twitter.com/biryani_hunter" target="_blank">twitter</a> :)
-	        </p>
-        	<div class="right-gradient"></div>
-        </section>
-        <section class="icons">
-        	<img src="img/web.svg" class="eatable web" color="#e74c3c">
-        	<img src="img/cap.svg" class="eatable cap" color="#666666">
-        	<img src="img/awesome.svg" class="eatable awesome" color="#3498db">
-        	<img src="img/console.svg" class="eatable console" color="#40D47E">
-        	<img src="img/servers.svg" class="eatable servers" color="#9b59b6">
-        	<img src="img/frontend.svg" class="eatable frontend" color="#f39c12">
-        	<img src="img/design.svg" class="eatable design" color="#f1c40f">
-        	<img src="img/serious.svg" class="eatable serious" color="#f22133">
-        	<img src="img/happy.svg" class="eatable happy" color="#f1c40f">
-        	<img src="img/chicken.svg" class="eatable chicken" color="#f39c12">
-        	<!--<img src="img/css3.png" class="eatable css3" color="#1572b6">
-        	<img src="img/Html5.png" class="eatable html5" color="#d35400">
-        	<img src="img/nodejs.png" class="eatable nodejs" color="#8cc84b">-->
-        </section>
+      	<div class="left-gradient"></div>
+        <p class="storyline">
+        	Hey there! I'm Swapnil Singh. I build web stuff. After i finished my college i always wanted to build awesome web experiences. I started building webapps as a backend developer and very soon I realised that i prefer talking to my users than servers. I've switched to frontend development and loved it :) I love getting my hands dirty at design and i feel 9 out 10 websites i visit everyday have serious feel in them and i wish to make lot of happy websites. Besides working as a frontend developer I also am a professional KFC eater :d I love beer, rocknroll, beach and my guitar. As of frontend i usually work with HTML, CSS, Javascript, AngularJS, D3, SASS and Illustrator. Check out my <a href="http://github.com/embibeswapnil" target="_blank">Github</a> for personal stuff I've worked on so far. If you want to build awesome stuff together, feel free to reach me by <a href="mailto:thisisnotaid@gmail.com">mail</a> or <a href="http://twitter.com/biryani_hunter" target="_blank">twitter</a> :)
+        </p>
+      	<div class="right-gradient"></div>
         <span class="scroll-helper">></span>
         <svg class="fp before-load">
           <g id="Fancy_pants">
@@ -142,18 +125,41 @@
           </g>
         </svg>
         <div class="road"></div>
-        <!--<div class="skyline"></div>-->
-        <script src="js/vendor/snap.svg.js"></script>
-        <script src="js/main.js"></script>
+        <section class="icons">
+        	<img src="img/web.svg" class="eatable web" color="#e74c3c">
+        	<img src="img/cap.svg" class="eatable cap" color="#666666">
+        	<img src="img/awesome.svg" class="eatable awesome" color="#3498db">
+        	<img src="img/console.svg" class="eatable console" color="#40D47E">
+        	<img src="img/servers.svg" class="eatable servers" color="#9b59b6">
+        	<img src="img/frontend.svg" class="eatable frontend" color="#f39c12">
+        	<img src="img/design.svg" class="eatable design" color="#f1c40f">
+        	<img src="img/serious.svg" class="eatable serious" color="#f22133">
+        	<img src="img/happy.svg" class="eatable happy" color="#f1c40f">
+        	<img src="img/chicken.svg" class="eatable chicken" color="#f39c12">
+        	<img src="img/github.svg" class="eatable github" color="#064F7D">
+        	<img src="img/beer.svg" class="eatable beer" color="#BA5F2A">
+        	<img src="img/guitar.svg" class="eatable guitar" color="#F1B344">
+        	<img src="img/Html5.png" class="eatable html5" color="#d35400">
+        	<img src="img/css3.png" class="eatable css3" color="#1572b6">
+        	<img src="img/js.png" class="eatable js" color="#F3D03F">
+        	<img src="img/ng.png" class="eatable ng" color="#E52838">
+        	<img src="img/d3.png" class="eatable d3" color="#666666">
+        	<img src="img/sass.png" class="eatable sass" color="#52B3D9">
+        	<img src="img/illustrator.png" class="eatable illustrator" color="#FBA625">
+        	<img src="img/mail.svg" class="eatable mail" color="#1abc9c">
+        	<img src="img/twitter.svg" class="eatable twitter" color="#4099ff">
+        </section>
+        <!--<script src="js/vendor/snap.svg.js"></script>-->
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+        <script src="js/app.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script> -->
+				  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+				  ga('create', 'UA-39359471-1', 'auto');
+				  ga('send', 'pageview');
+				</script>
     </body>
 </html>

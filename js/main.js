@@ -4,15 +4,10 @@ var $           = Snap.select,
     $$          = Snap.selectAll,
     i           = 0,
     ang         = 0,
-    scrollTimer = null,
-    danceTimer  = null,
-    lookTimer   = null,
-    initSkate   = null,
-    dancing     = null,
-    danceDelay  = 5000,
+    danceDelay  = 4000,
     prevScrollX = 0,
     foodPoints  = [],
-    windowWidth = window.outerWidth;
+    isScrollingForward, food, initSkate, lookTimer, dancing, danceTimer, scrollTimer;
 
 var cloud       = $('.cloud'),
     fancypants  = $('.fp'),
@@ -43,12 +38,9 @@ var pivots = {
   'folds': [legCrack.attr('x2'), legCrack.attr('y2')]
 };
 
-
-//moveClouds();
 var init = function(){
   eatables.forEach(function(el){
-    var point = {'el':el,'isEaten': false};
-    foodPoints.push(point);
+    foodPoints.push({'el':el,'isEaten': false});
   });
 
   setTimeout(function(){
@@ -58,30 +50,25 @@ var init = function(){
     setTimeout(function(){
       clearTimeout(initSkate);
       lookStraight();
-      setTimeout(blinkEyes,1000);
-    },1500);
+      setTimeout(blinkEyes,500);
+    },1000);
   },1000);
 
-  document.addEventListener('scroll',function(e){
-    e.preventDefault();
-    onScroll();
-  });
+  document.addEventListener('scroll',function(e){ onScroll(); });
 
   danceTimer = setTimeout(function(){
     dancing = setInterval(dance,500);
   }, danceDelay);
-
 };
 
 window.addEventListener('load', init, false);
 var scrollHelper = document.querySelector('.scroll-helper');
 
 function onScroll(){
-
 	scrollHelper.style.display = 'none';
-  clearInterval(dancing);
 
   if (danceTimer)  {
+  	clearInterval(dancing);
     resetFancyPants();
     clearTimeout(danceTimer);
   }
@@ -90,7 +77,7 @@ function onScroll(){
     dancing = setInterval(dance,500);
   },danceDelay);
 
-  var isScrollingForward = window.scrollX - prevScrollX > 0;
+  isScrollingForward = window.scrollX - prevScrollX > 0;
   prevScrollX = window.scrollX;
 
   if(isScrollingForward) {
@@ -103,19 +90,14 @@ function onScroll(){
     lookRight();
   }
 
-  if (scrollTimer) {
-    clearTimeout(scrollTimer);
-  }
+  if (scrollTimer) { clearTimeout(scrollTimer); }
 
   scrollTimer = setTimeout(function(){
     moveHair(0);
     eat();
   }, 1);
 
-  if(lookTimer) {
-    clearTimeout(lookTimer);
-  }
-
+  if(lookTimer) { clearTimeout(lookTimer); }
   lookTimer = setTimeout(lookStraight,100);
 }
 
@@ -132,16 +114,14 @@ function moveHair(angle){
 
 function eat(){
   for (var i = foodPoints.length - 1; i >= 0; i--) {
-    var food = foodPoints[i];
-    if(window.scrollX > food.el.node.offsetLeft - 330 && !food.isEaten){
-      //lookLeft();
+    food = foodPoints[i];
+    if(window.scrollX > food.el.node.offsetLeft - 250 && !food.isEaten){
       openMouth();
     }
-    if(window.scrollX > food.el.node.offsetLeft - 150 && !food.isEaten){
+    if(window.scrollX > food.el.node.offsetLeft - 170 && !food.isEaten){
       food.el.node.style.display = 'none';
       closeMouth();
       changePants(food.el.node.getAttribute('color'));
-      //lookStraight();
       food.isEaten = true;
     }
   }
@@ -190,12 +170,6 @@ function lookStraight(){
   eyes.forEach(function(el){
     el.animate({transform:'t'+[0,0]},50);
   });
-}
-
-function moveClouds() {
-  setInterval(function () {
-    cloud.transform('t'+[i++,0]);
-  },200);
 }
 
 function dance(){
