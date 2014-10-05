@@ -456,3 +456,25 @@ body {
 .github { left: 13790px; }
 .mail { left: 16186px; }
 .twitter { left: 16384px; }
+
+.social-links {
+	position: fixed;
+	bottom: 540px;
+	right: 50px;
+}
+
+.social-links__link {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px;
+	margin: 5px;
+	border: 1px dashed #444;
+	border-radius: 22px;
+	cursor: pointer;
+
+	&:hover { border-style: solid; }
+}
+
+.social-links__link-img {
+	height: 20px;
+}
