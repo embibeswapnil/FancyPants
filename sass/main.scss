@@ -292,7 +292,7 @@ textarea {
 }
 
 body {
-  width: 16200px;
+  width: 18000px;
   font-family: 'kg_primary_penmanship_2Rg', Helvetica, arial, sans serif;
 }
 
@@ -317,24 +317,17 @@ body {
   -ms-transition: left 1.5s ease-out;
   -o-transition: left 1.5s ease-out;
   transition: left 1.5s ease-out;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .eatable {
   position: absolute;
+  height: 35px;
   bottom: 139px;
-  height: 36px;
-}
-
-.css3 {
-  left: 1500px;
-}
-
-.html5 {
-  left: 2500px;
-}
-
-.nodejs {
-  left: 3500px;
 }
 
 .road {
@@ -342,7 +335,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 1;
-  width: 16200px;
+  width: 18000px;
   height: 8px;
   background-image: url("../img/road.svg");
 }
@@ -352,7 +345,7 @@ body {
   bottom: 7px;
   left: 0;
   z-index: 1;
-  width: 16200px;
+  width: 18000px;
   height: 46px;
   background-image: url("../img/skyline.svg");
 }
@@ -412,7 +405,7 @@ body {
 .storyline {
   margin: 0;
   padding: 0 250px;
-  word-spacing: 20px;
+  word-spacing: 25px;
   font-size: 40px;
   white-space: nowrap;
 }
@@ -433,3 +426,24 @@ body {
   0% { right: 20px; }
   50% { right: 30px; }
 }
+
+.web {
+  height: 28px;
+  left: 1000px;
+}
+.cap { left: 1630px; }
+.awesome { left: 2270px; }
+.console { left: 3380px; }
+.servers {
+  height: 30px;
+  left: 4750px;
+}
+.frontend { left: 5500px; }
+.design { left: 6850px; }
+.serious { left: 8000px; }
+.happy { left: 8970px; }
+.chicken { left: 10500px; }
+
+/*.css3 { left: 22000px; }
+.html5 { left: 22500px; }
+.nodejs { left: 22500px; }*/
