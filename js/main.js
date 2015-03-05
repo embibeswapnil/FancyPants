@@ -1,9 +1,10 @@
+/*global Snap */
+
 (function(){
   'use strict';
 
   var $           = Snap.select,
       $$          = Snap.selectAll,
-      i           = 0,
       ang         = 0,
       danceDelay  = 3000,
       prevScrollX = 0,
