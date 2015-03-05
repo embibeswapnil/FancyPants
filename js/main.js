@@ -120,6 +120,7 @@
         openMouth();
       }
       if(window.scrollX > food.el.node.offsetLeft - 170 && !food.isEaten){
+        foodPoints.splice(i,1);
         food.el.node.style.display = 'none';
         closeMouth();
         changePants(food.el.node.getAttribute('color'));
