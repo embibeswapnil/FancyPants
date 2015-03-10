@@ -56,6 +56,7 @@
     },1000);
 
     document.addEventListener('scroll',function(){ onScroll(); });
+    //setInterval(onScroll, 10);
 
     danceTimer = setTimeout(function(){
       dancing = setInterval(dance,500);
@@ -91,16 +92,16 @@
       lookRight();
     }
 
-    if (scrollTimer) { clearTimeout(scrollTimer); }
+    //if (scrollTimer) { clearTimeout(scrollTimer); }
     if (hairTimer) { clearTimeout(hairTimer); }
 
     hairTimer = setTimeout(function(){
       hairFront.beginElement();
     }, 100);
 
-    scrollTimer = setTimeout(function(){
+    //scrollTimer = setTimeout(function(){
       eat();
-    }, 1);
+    //}, 1);
 
     if(lookTimer) { clearTimeout(lookTimer); }
     lookTimer = setTimeout(lookStraight,100);
